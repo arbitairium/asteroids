@@ -13,19 +13,27 @@ def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+    Clock = pygame.time.Clock()
+    dt: float = 0.0
+
+
+
     while True:
         log_state()
         for event in pygame.event.get():
-            pass
         #Ability to exit game
+            if event.type == pygame.QUIT:
+                return
+
 
         #Fill screen with black
         screen.fill("black")
 
         #Ability to exit game
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                return
+
+
+        #set framerate
+        dt = Clock.tick(60) / 1000
 
         #Refresh Screen - DO THIS LAST
         pygame.display.flip()
